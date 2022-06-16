@@ -13,7 +13,7 @@ const App = () => {
     try {
       const responseData = await fetch('https://raw.githubusercontent.com/HubSpotWebTeam/CodeExercise/main/src/js/data/data.json');
       const json = await responseData.json();
-      setProducts(json.media);
+      setProducts(sortProductsByTitle(json.media));
     } catch(error) {
       console.log("There was an error: " + error);
     }
@@ -26,6 +26,17 @@ const App = () => {
   onSearchChange = (event) => {
     const searchFieldValue = event.target.value;             
     setSearchField(searchFieldValue);
+  }
+
+  const sortProductsByTitle = (products) => {
+    let sortedProducts = products.slice(0);
+    
+    sortedProducts.sort((a, b) => {
+      let x = a.title.toLowerCase();
+      let y = b.title.toLowerCase();
+      return x < y ? -1 : x > y ? 1 : 0;
+    });
+    return sortedProducts;
   }
 
   const filteredProducts = products.filter((product) => {
