@@ -1,3 +1,7 @@
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', 'Montserrat', sans-serif;
@@ -8,6 +12,38 @@ body {
     text-align: center;
     color: #fff;
     background-color: #00a4bd;
+  }
+
+  .container-main {
+    width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+  }
+  
+  @media (min-width: 576px) {
+    .container-main {
+      max-width: 540px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container-main {
+      max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container-main {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container-main {
+      max-width: 1140px;
+    }
   }
 }
 
