@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { Fragment } from 'react';
 
 import ProductList from './components/product-list/product-list.component';
+import SearchInput from './components/search-input/search-input.component';
 
 const App = () => {
 
   const [products, setProducts] = useState([]);
+  const [searchField, setSearchField] = useState([]);
 
   const getProductsData = async () => {
     try {
@@ -20,6 +22,15 @@ const App = () => {
   useEffect(() => {
     getProductsData()
   }, []);
+
+  onSearchChange = (event) => {
+    const searchFieldValue = event.target.value.toLowerCase();             
+    setSearchField(searchFieldValue);
+  }
+
+  const filteredProducts = products.filter((product) => {
+    return product.title.toLowerCase().includes(searchField);
+  });
 
   return (
     <Fragment>
@@ -39,7 +50,8 @@ const App = () => {
         <h2>Exercise 2 - Filterable Content</h2>
       </div>
       <div className="container-main">
-        <ProductList products={products} />
+        <SearchInput onChangeHandler={onSearchChange} />
+        <ProductList products={filteredProducts} />
       </div>
     </Fragment>
   );
