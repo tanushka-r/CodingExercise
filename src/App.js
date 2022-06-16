@@ -24,12 +24,12 @@ const App = () => {
   }, []);
 
   onSearchChange = (event) => {
-    const searchFieldValue = event.target.value.toLowerCase();             
+    const searchFieldValue = event.target.value;             
     setSearchField(searchFieldValue);
   }
 
   const filteredProducts = products.filter((product) => {
-    return product.title.toLowerCase().includes(searchField);
+    return product.title.includes(searchField);
   });
 
   return (
