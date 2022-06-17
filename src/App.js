@@ -1,20 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Fragment } from 'react';
-import ProductFilters from './components/product-filters/product-filters.component';
 
+import Multiselect from "multiselect-react-dropdown";
+
+import ProductFilters from './components/product-filters/product-filters.component';
 import ProductList from './components/product-list/product-list.component';
-import SearchInput from './components/search-input/search-input.component';
+import FilterDropdown from './components/filter-dropdown/filter-dropdown.component';
 
 const App = () => {
 
   const [products, setProducts] = useState([]);
   const [searchField, setSearchField] = useState([]);
+  const [genres, setGenres] = useState([]);
+  const [genresSelection, setGenresSelection] = useState([]);
+  // const [activeFilter, setActiveFilter] = useState([]);
 
   const getProductsData = async () => {
     try {
       const responseData = await fetch('https://raw.githubusercontent.com/HubSpotWebTeam/CodeExercise/main/src/js/data/data.json');
       const json = await responseData.json();
       setProducts(sortProductsByTitle(json.media));
+      setGenres(getGenres(json.media));
     } catch(error) {
       console.log("There was an error: " + error);
     }
@@ -23,11 +29,6 @@ const App = () => {
   useEffect(() => {
     getProductsData()
   }, []);
-
-  onSearchChange = (event) => {
-    const searchFieldValue = event.target.value;             
-    setSearchField(searchFieldValue);
-  }
 
   const sortProductsByTitle = (products) => {
     let sortedProducts = products.slice(0);
@@ -40,9 +41,44 @@ const App = () => {
     return sortedProducts;
   }
 
-  const filteredProducts = products.filter((product) => {
-    return product.title.includes(searchField);
-  });
+  const getGenres = (products) => {
+    let allGenres = new Set();
+    let sortedGenres;
+
+    products.forEach((product) => {
+      product.genre.forEach((genre) => {
+        allGenres.add(genre);
+      })
+    });
+
+    sortedGenres = [...allGenres].sort((a, b) => {
+      return a < b ? -1 : a > b ? 1 : 0;
+    });
+    return sortedGenres;
+  }
+
+  const filteredProducts= useMemo(() => {
+    const hasCategoryFilter = Object.values(genresSelection).includes(true);
+
+    const matchesCategories = (product) => {
+      if (hasCategoryFilter) {
+        return product.genre.some(
+          (genre) => genresSelection[genre] === true
+        );
+      } else return true;
+    };
+
+    return products
+      .filter((product) =>
+        product.title.includes(searchField)
+      )
+      .filter(matchesCategories);
+  }, [products, searchField, genresSelection]);
+
+  onSearchChange = (event) => {
+    const searchFieldValue = event.target.value;             
+    setSearchField(searchFieldValue);
+  }
 
   return (
     <Fragment>
@@ -62,7 +98,9 @@ const App = () => {
         <h2>Exercise 2 - Filterable Content</h2>
       </div>
       <div className="container-main">
-        <ProductFilters onSearchChange={onSearchChange} />
+        {console.log('render')}
+        <FilterDropdown data={genres} currentSelection={genresSelection} setActiveFilter={setGenresSelection} activeFilter={genresSelection} />
+        <ProductFilters  onSearchChange={onSearchChange} />
         <ProductList products={filteredProducts} />
       </div>
     </Fragment>

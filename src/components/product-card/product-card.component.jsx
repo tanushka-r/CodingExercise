@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
       </div>
       <div className='product-card-footer'>
         <div className='product-card-title'>{title} ({year})</div>
-        {/* <div className="product-genres">Genres: {genre.split(" ")}</div> */}
+        <div className="product-genres">Genres: {genre.join(", ")}</div>
       </div>
     </div>
   );
