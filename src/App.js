@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Fragment } from 'react';
+import ProductFilters from './components/product-filters/product-filters.component';
 
 import ProductList from './components/product-list/product-list.component';
 import SearchInput from './components/search-input/search-input.component';
@@ -61,7 +62,7 @@ const App = () => {
         <h2>Exercise 2 - Filterable Content</h2>
       </div>
       <div className="container-main">
-        <SearchInput onChangeHandler={onSearchChange} />
+        <ProductFilters onSearchChange={onSearchChange} />
         <ProductList products={filteredProducts} />
       </div>
     </Fragment>
