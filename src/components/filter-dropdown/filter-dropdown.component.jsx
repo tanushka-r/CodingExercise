@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 
 import './filter-dropdown.styles.scss';
 
-const FilterDropdown = ({data, setActiveFilter, activeFilter}) => {
+const FilterDropdown = ({data, setActiveFilter}) => {
     
     const toggleListHandler = (event) => {
         event.target.parentElement.classList.toggle('on');

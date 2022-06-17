@@ -6,6 +6,7 @@ import Multiselect from "multiselect-react-dropdown";
 import ProductFilters from './components/product-filters/product-filters.component';
 import ProductList from './components/product-list/product-list.component';
 import FilterDropdown from './components/filter-dropdown/filter-dropdown.component';
+import SearchInput from './components/search-input/search-input.component';
 
 const App = () => {
 
@@ -13,7 +14,8 @@ const App = () => {
   const [searchField, setSearchField] = useState([]);
   const [genres, setGenres] = useState([]);
   const [genresSelection, setGenresSelection] = useState([]);
-  // const [activeFilter, setActiveFilter] = useState([]);
+  const [years, setYears] = useState([]);
+  const [yearsSelection, setYearsSelection] = useState([]);
 
   const getProductsData = async () => {
     try {
@@ -21,6 +23,7 @@ const App = () => {
       const json = await responseData.json();
       setProducts(sortProductsByTitle(json.media));
       setGenres(getGenres(json.media));
+      setYears(getYears(json.media));
     } catch(error) {
       console.log("There was an error: " + error);
     }
@@ -30,10 +33,8 @@ const App = () => {
     getProductsData()
   }, []);
 
-  const sortProductsByTitle = (products) => {
-    let sortedProducts = products.slice(0);
-    
-    sortedProducts.sort((a, b) => {
+  const sortProductsByTitle = (products, title) => {
+    let sortedProducts = [...products].sort((a, b) => {
       let x = a.title.toLowerCase();
       let y = b.title.toLowerCase();
       return x < y ? -1 : x > y ? 1 : 0;
@@ -41,9 +42,16 @@ const App = () => {
     return sortedProducts;
   }
 
+  // may need better name... it is sorting strings alphabetically and numbers in asc order
+  const sortAscending = (arr) => {
+    let sortedArr = [...arr].sort((a, b) => {
+      return a < b ? -1 : a > b ? 1 : 0;
+    });
+    return sortedArr;
+  }
+
   const getGenres = (products) => {
     let allGenres = new Set();
-    let sortedGenres;
 
     products.forEach((product) => {
       product.genre.forEach((genre) => {
@@ -51,20 +59,35 @@ const App = () => {
       })
     });
 
-    sortedGenres = [...allGenres].sort((a, b) => {
-      return a < b ? -1 : a > b ? 1 : 0;
-    });
-    return sortedGenres;
+    return sortAscending(allGenres);
   }
 
-  const filteredProducts= useMemo(() => {
-    const hasCategoryFilter = Object.values(genresSelection).includes(true);
+  const getYears = (products) => {
+    let allYears = new Set();
 
-    const matchesCategories = (product) => {
-      if (hasCategoryFilter) {
+    products.forEach((product) => {
+        allYears.add(product.year);
+    });
+
+    return sortAscending(allYears);
+  }
+
+  const filteredProducts = useMemo(() => {
+    const hasGenreFilter = Object.values(genresSelection).includes(true);
+    const hasYearFilter = Object.values(yearsSelection).includes(true);
+
+    const matchesGenres = (product) => {
+      if (hasGenreFilter) {
         return product.genre.some(
           (genre) => genresSelection[genre] === true
         );
+      } else return true;
+    };
+
+    const matchesYears = (product) => {
+      if (hasYearFilter) {
+        return yearsSelection[product.year] === true;
+        
       } else return true;
     };
 
@@ -72,8 +95,9 @@ const App = () => {
       .filter((product) =>
         product.title.includes(searchField)
       )
-      .filter(matchesCategories);
-  }, [products, searchField, genresSelection]);
+      .filter(matchesGenres)
+      .filter(matchesYears);
+  }, [products, searchField, genresSelection, yearsSelection]);
 
   onSearchChange = (event) => {
     const searchFieldValue = event.target.value;             
@@ -98,9 +122,10 @@ const App = () => {
         <h2>Exercise 2 - Filterable Content</h2>
       </div>
       <div className="container-main">
-        {console.log('render')}
-        <FilterDropdown data={genres} currentSelection={genresSelection} setActiveFilter={setGenresSelection} activeFilter={genresSelection} />
-        <ProductFilters  onSearchChange={onSearchChange} />
+        <FilterDropdown data={genres} currentSelection={genresSelection} setActiveFilter={setGenresSelection} />
+        <FilterDropdown data={years} currentSelection={yearsSelection} setActiveFilter={setYearsSelection} />
+        <SearchInput onChangeHandler={onSearchChange} />
+        {/* <ProductFilters  onSearchChange={onSearchChange} /> */}
         <ProductList products={filteredProducts} />
       </div>
     </Fragment>
