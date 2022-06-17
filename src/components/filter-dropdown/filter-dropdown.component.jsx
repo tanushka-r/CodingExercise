@@ -10,7 +10,6 @@ const FilterDropdown = ({data, setActiveFilter}) => {
     }
 
     const handleChange = (event, item)  => {
-        console.log(event.target.checked);
         setActiveFilter((prev) => ({
           ...prev,
           [item]: event.target.checked

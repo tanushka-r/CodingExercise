@@ -7,6 +7,7 @@ import ProductFilters from './components/product-filters/product-filters.compone
 import ProductList from './components/product-list/product-list.component';
 import FilterDropdown from './components/filter-dropdown/filter-dropdown.component';
 import SearchInput from './components/search-input/search-input.component';
+import FilterRadio from './components/filter-radio/filter-radio.component';
 
 const App = () => {
 
@@ -16,6 +17,8 @@ const App = () => {
   const [genresSelection, setGenresSelection] = useState([]);
   const [years, setYears] = useState([]);
   const [yearsSelection, setYearsSelection] = useState([]);
+  const [productTypes, setProductTypes] = useState({'Movies': 'movie', 'Books': 'book'});
+  const [productTypeSelection, setProducTypeSelection] = useState('');
 
   const getProductsData = async () => {
     try {
@@ -75,6 +78,7 @@ const App = () => {
   const filteredProducts = useMemo(() => {
     const hasGenreFilter = Object.values(genresSelection).includes(true);
     const hasYearFilter = Object.values(yearsSelection).includes(true);
+    const hasProductTypeFilter = Object.values(productTypeSelection).length > 0;
 
     const matchesGenres = (product) => {
       if (hasGenreFilter) {
@@ -86,18 +90,24 @@ const App = () => {
 
     const matchesYears = (product) => {
       if (hasYearFilter) {
-        return yearsSelection[product.year] === true;
-        
+        return yearsSelection[product.year] === true;  
       } else return true;
     };
+
+    const matchesProductType = (product) => {
+      if(hasProductTypeFilter) {
+        return productTypeSelection == product.type;
+      } else return true;
+    }
 
     return products
       .filter((product) =>
         product.title.includes(searchField)
       )
       .filter(matchesGenres)
-      .filter(matchesYears);
-  }, [products, searchField, genresSelection, yearsSelection]);
+      .filter(matchesYears)
+      .filter(matchesProductType);
+  }, [products, searchField, genresSelection, yearsSelection, productTypeSelection]);
 
   onSearchChange = (event) => {
     const searchFieldValue = event.target.value;             
@@ -125,6 +135,7 @@ const App = () => {
         <FilterDropdown data={genres} currentSelection={genresSelection} setActiveFilter={setGenresSelection} />
         <FilterDropdown data={years} currentSelection={yearsSelection} setActiveFilter={setYearsSelection} />
         <SearchInput onChangeHandler={onSearchChange} />
+        <FilterRadio productTypes={productTypes} setActiveFilter={setProducTypeSelection} activeFilter={productTypeSelection} />
         {/* <ProductFilters  onSearchChange={onSearchChange} /> */}
         <ProductList products={filteredProducts} />
       </div>
