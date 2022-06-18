@@ -3,11 +3,11 @@ import ProductCard from '../../components/product-card/product-card.component';
 
 import './product-list.styles.scss';
 
-const ProductList = ({products}) => {
+const ProductList = ({products, imageError, setImageError, setProducts}) => {
   return (
     <div className='products-container'>
       {products.map((product) => (
-        <ProductCard key={uuid()} product={product} />
+        <ProductCard key={uuid()} product={product} setProducts={setProducts} />
       ))}
     </div>
   );

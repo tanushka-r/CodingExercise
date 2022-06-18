@@ -17,7 +17,6 @@ const App = () => {
   const [yearsSelection, setYearsSelection] = useState([]);
   const [productTypes, setProductTypes] = useState({'Movies': 'movie', 'Books': 'book'});
   const [productTypeSelection, setProducTypeSelection] = useState('');
-
   const [isChecked, setIsChecked] = useState([]);
   const [isRadioSelected, setIsRadioSelected] = useState('');
 
@@ -159,7 +158,7 @@ const App = () => {
           
           {/* <ProductFilters  onSearchChange={onSearchChange} /> */}
         </div>
-        <ProductList products={filteredProducts} />
+        <ProductList products={filteredProducts} setProducts={setProducts} />
       </div>
     </Fragment>
   );
