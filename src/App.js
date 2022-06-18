@@ -147,11 +147,11 @@ const App = () => {
       <div className="container-main">
         <div className="filters-container">
           <div className="filters-top-section">
-            <div className="filters-dropdown">
+            <div className="right-side">
               <FilterDropdown data={genres} setActiveFilter={setGenresSelection} activeFilter={genresSelection} placeholder="Genre" isChecked={isGenreChecked} setIsChecked={setIsGenreChecked} />
               <FilterDropdown data={years} setActiveFilter={setYearsSelection} activeFilter={yearsSelection} placeholder="Year" isChecked={isYearChecked} setIsChecked={setIsYearChecked} />
             </div>
-            <div>
+            <div className="left-side">
               <SearchInput onChangeHandler={onSearchChange} searchFieldValue={searchField} />
             </div>   
           </div>

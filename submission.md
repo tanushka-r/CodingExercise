@@ -2,6 +2,7 @@
 
 These notes will be read by HubSpot developers. Drop us a line!
 
+
 *** Browser Support ***
 
 Tested in following browsers:
@@ -12,9 +13,21 @@ Safari
 
 Edge
 
+
 *** Colours ***
 
 I am on Mac system and screen is much brighter and colours are differnet from any other laptop. I have used images provided and used colour picker in Sketch to extract colours. Some colours are very subtle, especially ones that used for hover effects etc., while visible on Mac, it is barely noticeable on Windows machine... But the styles are there. 
+
+
+*** Sizing ***
+
+On the prototype dropdowns are around 6px taller than search input. Not to deviate from requiremenents, I have coded it like that. However, it would look better if they would be same height, especially on smaller screens where they are side-by-side.
+
+*** Minimum supported screen size ***
+
+As assigment only stated that implementation should be "responsive" but did not state minimum supported size, I took a liberty to assume 375px (older iPhone SE) would be enough :) 
+
+
 
 ## Given more time, what would you have done differently?
 
