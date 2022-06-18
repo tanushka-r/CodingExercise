@@ -7,6 +7,9 @@ import FilterDropdown from './components/filter-dropdown/filter-dropdown.compone
 import SearchInput from './components/search-input/search-input.component';
 import FilterRadio from './components/filter-radio/filter-radio.component';
 
+import ExerciseHeader from './components/exercise-header/exercise-header.component';
+import TestimonialBlock from './components/testimonial-block/testimonial-block.component';
+
 // import "./styles/_commonVariables.scss";
 
 const App = () => {
@@ -129,21 +132,9 @@ const App = () => {
 
   return (
     <Fragment>
-      <div className="exercise-header">
-        <h2>Exercise 1 - Testimonial Block</h2>
-      </div>
-      <div>
-        <div>
-          <div>
-            <p>Gingerbread tart cupcake cake muffin cookie liquorice tiramisu. Toffee cupcake cake cake croissant icing carrot cake cookie. Dessert chocolate bar apple pie sesame snaps liquorice carrot cake cookie danish.</p>
-            <span>Indiana Jones, Archaeologist</span>
-          </div>
-          <a>Tell Me More</a>
-        </div>
-      </div>
-      <div className="exercise-header">
-        <h2>Exercise 2 - Filterable Content</h2>
-      </div>
+      <ExerciseHeader headerText="Exercise 1 - Testimonial Block" />
+      <TestimonialBlock />
+      <ExerciseHeader headerText="Exercise 2 - Filterable Content" />
       <div className="container-main">
         <div className="filters-container">
           <div className="filters-top-section">
