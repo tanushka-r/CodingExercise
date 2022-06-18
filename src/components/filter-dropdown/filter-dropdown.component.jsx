@@ -36,14 +36,21 @@ const FilterDropdown = ({data, setActiveFilter, activeFilter, placeholder, isChe
             <ul className="dropdown-list">
                 {data.map((item, index) => (
                     <li key={index} className="dropdown-option">
-                        <input
-                            id={placeholder+""+index}
-                            type="checkbox" 
-                            name="dropdown-group"
-                            checked={isChecked.includes(placeholder+""+index)}
-                            value={item} 
-                            onChange={(event) => handleChange(event, item)} />
-                        <label>{item}</label>
+                        <label className="checkbox-wrapper">{item}
+                            <input
+                                id={placeholder+""+index}
+                                type="checkbox" 
+                                name="dropdown-group"
+                                checked={isChecked.includes(placeholder+""+index)}
+                                value={item} 
+                                onChange={(event) => handleChange(event, item)} />
+                            <span class="check-icon"></span>
+                        </label>
+
+                        {/* <label class="container">One
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label> */}
                     </li>
                 ))}
             </ul>

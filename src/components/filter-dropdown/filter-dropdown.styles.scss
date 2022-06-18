@@ -17,7 +17,7 @@ body {
   width: 200px;
 
   .dropdown-list {
-    padding: 12px;
+    padding: 0px;
     background: #fff;
     position: absolute;
     top: 60px;
@@ -28,7 +28,7 @@ body {
     transform-origin: 50% 0;
     transform: scale(1, 0);
     transition: transform .15s ease-in-out .15s;
-    max-height: 66vh;
+    max-height: 318px;
     overflow-y: scroll;
     z-index: 999;
     margin-block-start: 0;
@@ -36,16 +36,27 @@ body {
 
   .dropdown-option {
     display: block;
-    padding: 8px 12px;
+    padding: 12px 16px;
     opacity: 0;
     transition: opacity .15s ease-in-out;
+    border-bottom: 1px solid $input-border-color;
+
+    &:hover {
+      background-color: $dropdown-background-color;
+    }
+
+    label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight:600;
+      text-transform: uppercase;
+    }
   }
   
   .dropdown-label {
     display: block;
     height: 44px;
     background: $dropdown-background-color;
-    border-bottom: 3px solid $input-border-color;
+    border-bottom: 2px solid $input-border-color;
     padding: 14px 12px;
     font-family: 'Montserrat', sans-serif;
     font-weight:600;
@@ -56,8 +67,9 @@ body {
     &:before {
       content: '\2304';
       font-size: 24px;
-      line-height: 4px;
-      float: right;
+      position: absolute;
+      top: 6px;
+      right: 32px;
     }
   }
   
@@ -101,7 +113,7 @@ body {
     .dropdown-label {
       &:before {
         content: '\2304'; 
-        line-height: initial;
+        top: 17px;
         -moz-transform: scale(1, -1);
         -webkit-transform: scale(1, -1);
         -o-transform: scale(1, -1);
@@ -110,10 +122,61 @@ body {
       }
     }
   }
-  
-  [type="checkbox"] {
-    position: relative;
-    top: -1px;
-    margin-right: 4px;
+}
+
+/* Checkbox styles */
+.checkbox-wrapper {
+  display: block;
+  position: relative;
+  padding-left: 32px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
   }
+
+  input:checked ~ .check-icon {
+    background-color: #ffffff;
+  }
+
+  .check-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #ffffff;
+    border: 1px solid $input-border-color;
+    border-radius: 4px;
+  }
+
+  .check-icon:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  input:checked ~ .check-icon:after {
+    display: block;
+  }
+
+  .check-icon:after {
+    left: 5px;
+    top: 2px;
+    width: 7px;
+    height: 12px;
+    border: solid $input-text-color;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  } 
 }

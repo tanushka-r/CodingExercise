@@ -12,6 +12,10 @@ Safari
 
 Edge
 
+*** Colours ***
+
+I am on Mac system and screen is much brighter and colours are differnet from any other laptop. I have used images provided and used colour picker in Sketch to extract colours. Some colours are very subtle, especially ones that used for hover effects etc., while visible on Mac, it is barely noticeable on Windows machine... But the styles are there. 
+
 ## Given more time, what would you have done differently?
 
 Would add unit testing.
@@ -21,6 +25,8 @@ Would add unit testing.
 I have tried not to deviate from directions as much as possible. As it is important to be able to show that I can code exactly to the specs.
 
 However, since there was a broken URL for one of the images, I had to make a simple image placeholder and add it to the project to programmaticaly replace any image with broken URL.
+
+Just a really small change - dropdown caret. I have "flipped" it when dropdown expanded, just to give more visual feedback.
 
 
 ## Is there anything else you'd like to let us know?
