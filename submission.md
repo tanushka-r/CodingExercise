@@ -20,6 +20,8 @@ I am on Mac system and screen is much brighter and colours are differnet from an
 
 Would add unit testing.
 
+Would break down and organise css better, I am using styles per component, just didn't have enough time to analyse and see where common parts are to be able to move them. 
+
 ## How did you deviate from the directions, if at all, and why?
 
 I have tried not to deviate from directions as much as possible. As it is important to be able to show that I can code exactly to the specs.

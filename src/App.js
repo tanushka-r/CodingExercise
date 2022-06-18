@@ -7,6 +7,8 @@ import FilterDropdown from './components/filter-dropdown/filter-dropdown.compone
 import SearchInput from './components/search-input/search-input.component';
 import FilterRadio from './components/filter-radio/filter-radio.component';
 
+// import "./styles/_commonVariables.scss";
+
 const App = () => {
 
   const [products, setProducts] = useState([]);

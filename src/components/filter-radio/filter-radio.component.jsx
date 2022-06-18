@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import './filter-radio.styles.scss';
 
 const FilterRadio = ({data, setActiveFilter, activeFilter, isChecked, setIsChecked}) => {
@@ -14,6 +12,7 @@ const FilterRadio = ({data, setActiveFilter, activeFilter, isChecked, setIsCheck
       <div className="radio-list">          
           {Object.keys(data).map((typeKey) => (
             <span key={typeKey} className="radio-group">
+              <label className="radio-wrapper">{typeKey}
               <input  
                 id={typeKey} 
                 type="radio" 
@@ -21,8 +20,9 @@ const FilterRadio = ({data, setActiveFilter, activeFilter, isChecked, setIsCheck
                 checked={isChecked.includes(typeKey)} 
                 value={data[typeKey]} 
                 onChange={(event) => handleChange(event)} />
-              <label htmlFor={typeKey}>{typeKey}</label>
-            </ span>                  
+                <span className="circle-icon"></span>
+              </label>
+            </ span>   
           ))}
       </div>  
     )

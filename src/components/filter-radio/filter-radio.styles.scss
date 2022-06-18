@@ -1,5 +1,59 @@
+$radio-icon-color: #7e7b7c;
+$radio-border-color: #adacad;
+$radio-hover-background: #f6f6f6;
+
 .radio-group {
   color: #5a5454;
   font-weight: 600;
   margin-right: 12px;
+}
+
+.radio-wrapper {
+  position: relative;
+  padding-left: 24px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .circle-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: #ffffff;
+    border: 1px solid $radio-border-color;
+    border-radius: 50%;
+  }
+
+  &:hover input ~ .circle-icon {
+    background-color: $radio-hover-background;
+  }
+
+  .circle-icon:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .circle-icon:after {
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $radio-icon-color;
+  }
+
+  input:checked ~ .circle-icon:after {
+    display: block;
+  }
 }

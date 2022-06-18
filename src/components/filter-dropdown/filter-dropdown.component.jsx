@@ -44,13 +44,8 @@ const FilterDropdown = ({data, setActiveFilter, activeFilter, placeholder, isChe
                                 checked={isChecked.includes(placeholder+""+index)}
                                 value={item} 
                                 onChange={(event) => handleChange(event, item)} />
-                            <span class="check-icon"></span>
+                            <span className="check-icon"></span>
                         </label>
-
-                        {/* <label class="container">One
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label> */}
                     </li>
                 ))}
             </ul>
