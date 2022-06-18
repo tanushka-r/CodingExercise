@@ -3,17 +3,22 @@ import { v4 as uuid } from 'uuid';
 
 import './filter-dropdown.styles.scss';
 
-const FilterDropdown = ({data, setActiveFilter, selectionCount, placeholder}) => {
+const FilterDropdown = ({data, setActiveFilter, selectionCount, placeholder, isChecked, setIsChecked}) => {
 
     const toggleListHandler = (event) => {
         event.target.parentElement.classList.toggle('on');
     }
 
     const handleChange = (event, item)  => {
+        const { id, checked } = event.target;
         setActiveFilter((prev) => ({
           ...prev,
-          [item]: event.target.checked
+          [item]: checked
         }));
+        setIsChecked([...isChecked, id]);
+        if (!checked) {
+          setIsChecked(isChecked.filter((c) => c !== id));
+        }
     };
 
     return (
@@ -22,12 +27,14 @@ const FilterDropdown = ({data, setActiveFilter, selectionCount, placeholder}) =>
             <ul className="dropdown-list">
                 {data.map((item, index) => (
                     <li key={index} className="dropdown-option">
-                        <input 
+                        <input
+                            id={placeholder+""+index}
                             type="checkbox" 
-                            name="dropdown-group" 
+                            name="dropdown-group"
+                            checked={isChecked.includes(placeholder+""+index)}
                             value={item} 
                             onChange={(event) => handleChange(event, item)} />
-                        {item}
+                        <label>{item}</label>
                     </li>
                 ))}
             </ul>

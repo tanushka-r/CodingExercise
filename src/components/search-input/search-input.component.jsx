@@ -1,9 +1,10 @@
 import './search-input.styles.scss';
 
-const SearchInput = ({onChangeHandler}) => {
+const SearchInput = ({onChangeHandler, searchFieldValue}) => {
     return (
       <input 
           type="search" 
+          value={searchFieldValue}
           onChange={onChangeHandler} />
     )
 }
