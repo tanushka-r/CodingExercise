@@ -50,4 +50,4 @@ Movie cards:
 
 Could add popularity rating - e.g. stars, numbers or percentage that immediately visible.
 
-Could add roll-over or, for mobile, on-tap overlay with more info about each book/movie.
+Could add roll-over (for mobile on-tap) overlay with more info about each book/movie.
