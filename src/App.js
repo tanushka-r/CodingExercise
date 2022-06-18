@@ -132,11 +132,23 @@ const App = () => {
         <h2>Exercise 2 - Filterable Content</h2>
       </div>
       <div className="container-main">
-        <FilterDropdown data={genres} currentSelection={genresSelection} setActiveFilter={setGenresSelection} />
-        <FilterDropdown data={years} currentSelection={yearsSelection} setActiveFilter={setYearsSelection} />
-        <SearchInput onChangeHandler={onSearchChange} />
-        <FilterRadio productTypes={productTypes} setActiveFilter={setProducTypeSelection} activeFilter={productTypeSelection} />
-        {/* <ProductFilters  onSearchChange={onSearchChange} /> */}
+        <div className="filters-container">
+          <div className="filters-top-section">
+            <div className="filters-dropdown">
+              <FilterDropdown data={genres} setActiveFilter={setGenresSelection} selectionCount={genresSelection.length} placeholder="Genre" />
+              <FilterDropdown data={years} setActiveFilter={setYearsSelection} selectionCount={yearsSelection.length} placeholder="Year" />
+            </div>
+            <div>
+              <SearchInput onChangeHandler={onSearchChange} />
+            </div>   
+          </div>
+          <div className="filters-bottom-section">
+            <FilterRadio data={productTypes} setActiveFilter={setProducTypeSelection} />
+            <button>Clear Filters</button>
+          </div>
+          
+          {/* <ProductFilters  onSearchChange={onSearchChange} /> */}
+        </div>
         <ProductList products={filteredProducts} />
       </div>
     </Fragment>
