@@ -157,7 +157,7 @@ const App = () => {
           </div>
           <div className="filters-bottom-section">
             <FilterRadio data={productTypes} setActiveFilter={setProducTypeSelection} isChecked={isRadioSelected} setIsChecked={setIsRadioSelected} />
-            <button id="button_clearFilters" onClick={onClearFilters}>Clear Filters</button>
+            <button id="button_clearFilters" className="action-link" onClick={onClearFilters}>Clear Filters</button>
           </div>
           
           {/* <ProductFilters  onSearchChange={onSearchChange} /> */}
