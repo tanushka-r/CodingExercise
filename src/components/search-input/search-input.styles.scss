@@ -17,12 +17,12 @@ $input-border-color: #dfdddf;
   .search-icon {
     box-sizing: border-box;
     position: absolute;
-    top: 14px;
+    top: 15px;
     right: 12px;
     display: block;
-    width: 16px;
-    height: 16px;
-    border: 2px solid $input-text-color;
+    width: 14px;
+    height: 14px;
+    border: 3px solid $input-text-color;
     border-radius: 100%;
     margin-left: -4px;
     margin-top: -4px
@@ -33,12 +33,11 @@ $input-border-color: #dfdddf;
     box-sizing: border-box;
     position: absolute;
     border-radius: 3px;
-    width: 2px;
+    width: 3px;
     height: 8px;
     background: $input-text-color;
     transform: rotate(-45deg);
-    top: 10px;
-    left: 12px
+    top: 7px;
+    left: 9px
   }
-
 }
