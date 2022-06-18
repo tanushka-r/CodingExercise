@@ -24,7 +24,7 @@ const FilterDropdown = ({data, setActiveFilter, activeFilter, placeholder, isChe
         }    
     };
 
-    useEffect(() => setPlaceholder(), [activeFilter]);
+    useEffect(() => setPlaceholder(), [isChecked]);
 
     const setPlaceholder = () => {
         setPlaceholderText(isChecked.length > 1 ? isChecked.length + " " + placeholder + "s" : placeholder);
