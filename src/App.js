@@ -12,7 +12,7 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [searchField, setSearchField] = useState('');
   const [genres, setGenres] = useState([]);
-  const [genresSelection, setGenresSelection] = useState([]);
+  const [genresSelection, setGenresSelection] = useState({});
   const [years, setYears] = useState([]);
   const [yearsSelection, setYearsSelection] = useState([]);
   const [productTypes, setProductTypes] = useState({'Movies': 'movie', 'Books': 'book'});
@@ -120,7 +120,7 @@ const App = () => {
     setYearsSelection([]);
     setProducTypeSelection('');
     setIsChecked([]);
-    setIsRadioSelected('');
+    setIsRadioSelected('');    
   };
 
   return (
@@ -144,8 +144,8 @@ const App = () => {
         <div className="filters-container">
           <div className="filters-top-section">
             <div className="filters-dropdown">
-              <FilterDropdown data={genres} setActiveFilter={setGenresSelection} selectionCount={genresSelection.length} placeholder="Genre" isChecked={isChecked} setIsChecked={setIsChecked} />
-              <FilterDropdown data={years} setActiveFilter={setYearsSelection} selectionCount={yearsSelection.length} placeholder="Year" isChecked={isChecked} setIsChecked={setIsChecked} />
+              <FilterDropdown data={genres} setActiveFilter={setGenresSelection} activeFilter={genresSelection} placeholder="Genre" isChecked={isChecked} setIsChecked={setIsChecked} />
+              <FilterDropdown data={years} setActiveFilter={setYearsSelection} activeFilter={yearsSelection} placeholder="Year" isChecked={isChecked} setIsChecked={setIsChecked} />
             </div>
             <div>
               <SearchInput onChangeHandler={onSearchChange} searchFieldValue={searchField} />
