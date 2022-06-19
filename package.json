@@ -5,7 +5,7 @@
   "scripts": {
     "start": "parcel serve src/views/index.html --open",
     "build": "rm -Rf dist/ && parcel build src/views/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "react-scripts test"
   },
   "author": "HubSpot Applicant",
   "license": "ISC",
@@ -22,9 +22,8 @@
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
     "@parcel/transformer-sass": "^2.6.0",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
-    "babel-jest": "^28.1.1",
-    "jest": "^28.1.1",
-    "react-test-renderer": "^18.2.0"
+    "react-scripts": "^5.0.1"
   }
 }
