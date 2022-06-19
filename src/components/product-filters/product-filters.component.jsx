@@ -1,6 +1,4 @@
-
 import SearchInput from '../search-input/search-input.component';
-
 
 import './product-filters.styles.scss';
 

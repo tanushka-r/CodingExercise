@@ -1,15 +1,10 @@
 import { useState, useEffect } from 'react';
-import { v4 as uuid } from 'uuid';
 
 import './filter-dropdown.styles.scss';
 
-const FilterDropdown = ({data, setActiveFilter, activeFilter, placeholder, isChecked, setIsChecked}) => {
+const FilterDropdown = ({data, setActiveFilter, title, isChecked, setIsChecked}) => {
 
-    const [placeholderText, setPlaceholderText] = useState(placeholder);
-
-    const toggleListHandler = (event) => {
-        event.target.parentElement.classList.toggle('on');
-    }
+    const [titleText, setTitleText] = useState(title);
 
     const handleChange = (event, item)  => {
         const { id, checked } = event.target;
@@ -24,24 +19,24 @@ const FilterDropdown = ({data, setActiveFilter, activeFilter, placeholder, isChe
         }    
     };
 
-    useEffect(() => setPlaceholder(), [isChecked]);
+    useEffect(() => setTitle(), [isChecked]);
 
-    const setPlaceholder = () => {
-        setPlaceholderText(isChecked.length > 1 ? isChecked.length + " " + placeholder + "s" : placeholder);
+    const setTitle = () => {
+        setTitleText(isChecked.length > 1 ? isChecked.length + " " + title + "s" : title);
     }
 
     return (
         <div className='dropdown'>
-            <label className="dropdown-label" onClick={toggleListHandler}>{placeholderText}</label>
+            <label className="dropdown-label">{titleText}</label>
             <ul className="dropdown-list">
                 {data.map((item, index) => (
                     <li key={index} className="dropdown-option">
                         <label className="checkbox-wrapper">{item}
                             <input
-                                id={placeholder+""+index}
+                                id={title + "" + index}
                                 type="checkbox" 
                                 name="dropdown-group"
-                                checked={isChecked.includes(placeholder+""+index)}
+                                checked={isChecked.includes(title + "" + index)}
                                 value={item} 
                                 onChange={(event) => handleChange(event, item)} />
                             <span className="check-icon"></span>

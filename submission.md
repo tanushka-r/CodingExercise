@@ -37,11 +37,9 @@ Would break down and organise css better, I am using styles per component, just 
 
 ## How did you deviate from the directions, if at all, and why?
 
-I have tried not to deviate from directions as much as possible. As it is important to be able to show that I can code exactly to the specs.
+I have tried not to deviate from directions as much as possible in order to show that I can code exactly to the specs.
 
 However, since there was a broken URL for one of the images, I had to make a simple image placeholder and add it to the project to programmaticaly replace any image with broken URL.
-
-Just a really small change - dropdown caret. I have "flipped" it when dropdown expanded, just to give more visual feedback.
 
 
 ## Is there anything else you'd like to let us know?
@@ -64,3 +62,5 @@ Movie cards:
 Could add popularity rating - e.g. stars, numbers or percentage that immediately visible.
 
 Could add roll-over (for mobile on-tap) overlay with more info about each book/movie.
+
+Some images are of different aspect-ratio, in real life project images would be pre-formatted and optimised. 

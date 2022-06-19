@@ -59,7 +59,7 @@ $dropdown-background-color: #f6f6f6;
     }
   }
   
-  &.on {
+  &:hover {
 
     &:after, &:before {
       bottom: -17px;
@@ -93,18 +93,6 @@ $dropdown-background-color: #f6f6f6;
       .dropdown-option {
         opacity: 1;
         transition-delay: .2s;
-      }
-    }
-    
-    .dropdown-label {
-      &:before {
-        content: '\2304'; 
-        top: 17px;
-        -moz-transform: scale(1, -1);
-        -webkit-transform: scale(1, -1);
-        -o-transform: scale(1, -1);
-        -ms-transform: scale(1, -1);
-        transform: scale(1, -1);
       }
     }
   }

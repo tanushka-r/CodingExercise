@@ -1,6 +1,6 @@
 import './filter-radio.styles.scss';
 
-const FilterRadio = ({data, setActiveFilter, activeFilter, isChecked, setIsChecked}) => {
+const FilterRadio = ({data, setActiveFilter, isChecked, setIsChecked}) => {
 
     const handleChange = (event) => {
       const { id, checked, value } = event.target;

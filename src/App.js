@@ -51,7 +51,6 @@ const App = () => {
     return sortedProducts;
   }
 
-  // may need better name... it is sorting strings alphabetically and numbers in asc order
   const sortAscending = (arr) => {
     let sortedArr = [...arr].sort((a, b) => {
       return a < b ? -1 : a > b ? 1 : 0;
@@ -106,10 +105,12 @@ const App = () => {
       } else return true;
     }
 
+    const matchesSearch = (product) => {
+      return product.title.includes(searchField);
+    }
+
     return products
-      .filter((product) =>
-        product.title.includes(searchField)
-      )
+      .filter(matchesSearch)
       .filter(matchesGenres)
       .filter(matchesYears)
       .filter(matchesProductType);
@@ -139,8 +140,8 @@ const App = () => {
         <div className="filters-container">
           <div className="filters-top-section">
             <div className="right-side">
-              <FilterDropdown data={genres} setActiveFilter={setGenresSelection} activeFilter={genresSelection} placeholder="Genre" isChecked={isGenreChecked} setIsChecked={setIsGenreChecked} />
-              <FilterDropdown data={years} setActiveFilter={setYearsSelection} activeFilter={yearsSelection} placeholder="Year" isChecked={isYearChecked} setIsChecked={setIsYearChecked} />
+              <FilterDropdown data={genres} setActiveFilter={setGenresSelection} activeFilter={genresSelection} title="Genre" isChecked={isGenreChecked} setIsChecked={setIsGenreChecked} />
+              <FilterDropdown data={years} setActiveFilter={setYearsSelection} activeFilter={yearsSelection} title="Year" isChecked={isYearChecked} setIsChecked={setIsYearChecked} />
             </div>
             <div className="left-side">
               <SearchInput onChangeHandler={onSearchChange} searchFieldValue={searchField} />
