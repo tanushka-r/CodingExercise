@@ -128,7 +128,7 @@ const FilterableContent = () => {
   };
 
   return (
-    <div className="container-main">
+    <div role="container" title="exercise two" className="container-main">
       <div className="filters-container">
         <div className="filters-top-section">
           <div className="right-side">
