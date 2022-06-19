@@ -1,37 +1,42 @@
+$highlight-color: #ff6100;
+$text-color: #555555;
+$background-color: #faf8f7;
+$primary-button-color: #00a3e7;
+
 .testimonial-block {
-  background-color: #faf8f7;
   display: flex;
   justify-content: center;
   padding: 34px 0;
+  background-color: $background-color;
 
   & > div {
+    display: flex;
     max-width: 50%;
     padding-left: 18px;
-    display: flex;
-
+    
     div {
-      color: #555555;
-      border-left: 2px solid #ff6100; 
+      color: $text-color;
+      border-left: 2px solid $highlight-color; 
       padding-left: 30px;
       position: relative;
 
       &:before, &:after {
-        background-color: #ff6100;
-        border-radius: 50%;
         position: absolute;
+        border-radius: 50%;
+        background-color: $highlight-color;
       }
 
       &:before {
         content: '\201c';
-        font-size: 40px;
-        color: white;
-        font-family: emoji;
         padding: 3px 8px;
         width: 40px;
         height: 40px;
-        border: 3px solid #faf8f7;
         left: -20px;
         top: -3px;
+        border: 3px solid $background-color;
+        color: #ffffff;
+        font-family: emoji;
+        font-size: 40px;
       }
 
       &:after {
@@ -43,11 +48,11 @@
       }
 
       p {
-        font-family: 'Roboto Slab', srif;
-        font-weight: 300;
-        font-size: 20px;
         margin-bottom: 34px;
         margin-right: 20px;
+        font-family: 'Roboto Slab', serif;
+        font-weight: 300;
+        font-size: 20px;
       }
 
       span {
@@ -58,15 +63,15 @@
     }
 
     a {
+      align-self: center;
+      padding: 24px 40px 23px 40px;
+      border-radius: 6px;
+      background-color: $primary-button-color;
+      color: #ffffff;
       font-family: 'Montserrat', sans-serif;
       font-size: 14px;
       font-weight: 700;
       text-transform: uppercase;
-      padding: 24px 40px 23px 40px;
-      background-color: #00a3e7;
-      border-radius: 6px;
-      color: #ffffff;
-      align-self: center;
       white-space: nowrap;
       cursor: pointer;
     }
