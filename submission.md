@@ -4,6 +4,10 @@ Hi, I hope you are having a lovely day :)
 
 I did my best to make this project well organised and easy to understand. 
 
+All commits small and branches are single-purpose with descriptive naming for cleaner git history.
+
+I appreciate that you dedicating your time to it and hopefully you won't get too bored! 
+
 Thank you for reading it :)
 
 
