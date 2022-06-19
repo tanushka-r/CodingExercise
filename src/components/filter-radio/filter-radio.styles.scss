@@ -32,11 +32,11 @@ $radio-hover-background: #f6f6f6;
     position: absolute;
     top: 0;
     left: 0;
-    height: 16px;
-    width: 16px;
+    height: 18px;
+    width: 18px;
     background-color: #ffffff;
-    border: 1px solid $radio-border-color;
-    border-radius: 50%;
+    border: 2px solid $radio-border-color;
+    border-radius: 16px;
   }
 
   &:hover input ~ .circle-icon {
@@ -60,5 +60,12 @@ $radio-hover-background: #f6f6f6;
 
   input:checked ~ .circle-icon:after {
     display: block;
+  }
+
+  @-moz-document url-prefix() {
+    .circle-icon:after {
+      width: 9px;
+      height: 9px;
+    }
   }
 }
