@@ -6,9 +6,9 @@ I did my best to make this project well organised and easy to understand.
 
 All commits small and branches are single-purpose with descriptive naming for cleaner git history.
 
-I appreciate that you dedicating your time to it and hopefully you won't get too bored! 
+I appreciate that you are dedicating your time to this and hopefully you won't get too bored! 
 
-Thank you for reading it :)
+Thank you for reviewing :)
 
 
 *** Browser Support ***
@@ -42,22 +42,22 @@ Would add accessibility attributes (aria-) etc.
 ## How did you deviate from the directions, if at all, and why?
 
 I have tried not to deviate from directions as much as possible in order to show that I can code exactly to the specs.
-However, since there was a broken URL for one of the images, I had to make a simple image placeholder and add it to the project to programmaticaly replace any image with broken URL.
+However, since there was a broken URL for one of the images, I had to make a simple image placeholder and add it to the project to programmatically replace any image with broken URL.
 
 
 ## Is there anything else you'd like to let us know?
 
-*** Suggestions ***
+If this was a real life project with appropriate time available for development, I would make the following suggestions:
 
-*** Layout of filters section ***
-To improve user experience, could try to move Movies/Books rado buttons to the same line as dropdowns (at lease on desktop view). That would allow to move Clear Filters button/link closer - e.g. law of proximity, as currently there is a bit of disconnect when entering and clearing data. However, such suggestions would be verified by user feedback or A/B testing or both.
+*** Filters section layout ***
+To improve user experience, could try to move Movies/Books rado buttons to the same line as dropdowns (at lease on desktop view). That would allow to move Clear Filters button/link closer - e.g. law of proximity, as currently there is a bit of disconnect when entering and clearing data. However, such suggestions should be verified by the user feedback or A/B testing or both.
 
 *** Interactions ***
-Would be nice to introduce "tag cloud" for faster removal of filters one-by-one. For example, if user pick a genre at the bottom of the list and wishes to un-select only that genre withou clearing all filters, they would have to epxand dropdown and scroll all way down in order to do so.
+Would be nice to introduce "tag cloud" for faster removal of filters one-by-one. For example, if user pick a genre at the bottom of the list and later wishes to un-select only that genre without clearing all filters, they would have to epxand the dropdown and scroll all the way down in order to do so, versus single click on a tag "close" icon.
 
-Another advantage of "tag cloud" would be that user would be able to see an actual selections, e.g. "sci-fi", "1991", rather than counter of how many selections has been made. From user perspective they may want to have overview of what exactly they are searching for rather than number of search criteria entered so far.
+Another advantage of "tag cloud" would be that user would be able to see the actual selections, e.g. "sci-fi", "1991", rather than a counter of how many selections has been made. From user's perspective they may want to have overview of what exactly they are searched for rather than number of search criteria entered so far. That would help with potential errors too - if user accidentally selects wrong option.
 
 *** Product cards ***
-Could add popularity rating - e.g. stars, numbers or percentage that immediately visible.
-Could add roll-over (for mobile on-tap) overlay with more info about each book/movie.
+Could add popularity rating - e.g. stars, numbers or percentage that are immediately visible.
+Could add "on hover" overlay ("on-tap" for mobile) with more info about each book/movie.
 Some images are of different aspect-ratio, in real life project images would be pre-formatted and optimised. 
