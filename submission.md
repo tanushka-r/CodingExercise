@@ -7,16 +7,18 @@ These notes will be read by HubSpot developers. Drop us a line!
 
 Tested in following browsers:
 
-Chrome 
-Firefox
-Safari
+## Mac OS Monterey 12.4:
+Chrome 101.0.4951.64 
+Firefox 101.0.1
+Safari 15.5
 
-Edge
+## Windows 10:
+Edge 
 
 
 *** Colours ***
 
-I am on Mac system and screen is much brighter and colours are differnet from any other laptop. I have used images provided and used colour picker in Sketch to extract colours. Some colours are very subtle, especially ones that used for hover effects etc., while visible on Mac, it is barely noticeable on Windows machine... But the styles are there. 
+I am using Mac OS and screen is much brighter and colours are differnet from any other laptop. I have used images provided and used colour picker in Sketch to extract colours. Some colours are very subtle, especially ones that used for hover effects etc. While they are visible on Mac, it is barely noticeable on Windows machine... But the styles are there :) 
 
 
 *** Sizing ***

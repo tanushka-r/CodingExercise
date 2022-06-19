@@ -1,4 +1,4 @@
-// import './exercise-header.styles.scss';
+import './exercise-header.styles.scss';
 
 const ExerciseHeader = ({headerText}) => {
   return (

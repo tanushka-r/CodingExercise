@@ -5,6 +5,8 @@ import FilterDropdown from '../filter-dropdown/filter-dropdown.component';
 import SearchInput from '../search-input/search-input.component';
 import FilterRadio from '../filter-radio/filter-radio.component';
 
+import './filterable-content.styles.scss';
+
 const FilterableContent = () => {
 
   const [products, setProducts] = useState([]);
