@@ -7,6 +7,10 @@ $dropdown-background-color: #f6f6f6;
   font-size: 16px;
   color: $dropdown-text-color;
   width: 230px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:600;
+  text-transform: uppercase;
+  cursor: pointer;
 
   .dropdown-list {
     padding: 0px;
@@ -35,12 +39,6 @@ $dropdown-background-color: #f6f6f6;
     &:hover {
       background-color: $dropdown-background-color;
     }
-
-    label {
-      font-family: 'Montserrat', sans-serif;
-      font-weight:600;
-      text-transform: uppercase;
-    }
   }
   
   .dropdown-label {
@@ -48,10 +46,7 @@ $dropdown-background-color: #f6f6f6;
     height: 44px;
     background: $dropdown-background-color;
     border-bottom: 2px solid $dropdown-border-color;
-    padding: 14px 12px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight:600;
-    text-transform: uppercase;
+    padding: 14px 12px;    
     line-height: 1;
     cursor: pointer;
     
@@ -129,9 +124,9 @@ $dropdown-background-color: #f6f6f6;
   input {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
     height: 0;
     width: 0;
+    cursor: pointer;
   }
 
   input:checked ~ .check-icon {

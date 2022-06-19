@@ -19,8 +19,8 @@ const ProductCard = ({ product}) => {
         <img src={imageSrc} alt={`${title}`} onError={onError} />
       </div>
       <div className='product-card-footer'>
-        <div className='product-card-title'>{title} ({year})</div>
-        <div className="product-genres">Genres: {genre.join(", ")}</div>
+        <div className='product-title'>{title} ({year})</div>
+        <div className="product-genre">Genres: {genre.join(", ")}</div>
       </div>
     </div>
   );
