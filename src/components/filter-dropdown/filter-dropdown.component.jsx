@@ -13,6 +13,7 @@ const FilterDropdown = ({data, setActiveFilter, title, isChecked, setIsChecked})
           ...prev,
           [item]: checked
         }));
+        
         setIsChecked([...isChecked, id]);
         if (!checked) {
           setIsChecked(isChecked.filter((c) => c !== id));

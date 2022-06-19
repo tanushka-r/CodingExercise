@@ -75,6 +75,12 @@ $primary-button-color: #00a3e7;
       white-space: nowrap;
       cursor: pointer;
     }
+
+    @-moz-document url-prefix() {
+      div:before {
+        padding: 7px 8px;
+      }
+    }
   }
 }
 

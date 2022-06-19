@@ -20,13 +20,13 @@ const FilterableContent = () => {
   const [productTypeSelection, setProducTypeSelection] = useState('');
   const [isGenreChecked, setIsGenreChecked] = useState([]);
   const [isYearChecked, setIsYearChecked] = useState([]);
-  const [isRadioSelected, setIsRadioSelected] = useState('');
+  const [isProductTypeSelected, setIsProductTypeSelected] = useState('');
 
   const getProductsData = async () => {
     try {
       const responseData = await fetch('https://raw.githubusercontent.com/HubSpotWebTeam/CodeExercise/main/src/js/data/data.json');
       const json = await responseData.json();
-      setProducts(sortProductsByTitle(json.media));
+      setProducts(sortByTitleIgnoreCase(json.media));
       setGenres(getGenres(json.media));
       setYears(getYears(json.media));
     } catch(error) {
@@ -38,13 +38,13 @@ const FilterableContent = () => {
     getProductsData()
   }, []);
 
-  const sortProductsByTitle = (products, title) => {
-    let sortedProducts = [...products].sort((a, b) => {
+  const sortByTitleIgnoreCase = (arr) => {
+    let sorttedArr = [...arr].sort((a, b) => {
       let x = a.title.toLowerCase();
       let y = b.title.toLowerCase();
       return x < y ? -1 : x > y ? 1 : 0;
     });
-    return sortedProducts;
+    return sorttedArr;
   }
 
   const sortAscending = (arr) => {
@@ -117,14 +117,14 @@ const FilterableContent = () => {
     setSearchField(searchFieldValue);
   }
 
-  const onClearFilters = (event) => {
+  const onClearFilters = () => {
     setSearchField('');
     setGenresSelection([]);
     setYearsSelection([]);
     setProducTypeSelection('');
     setIsGenreChecked([]);
     setIsYearChecked([]);
-    setIsRadioSelected('');    
+    setIsProductTypeSelected('');    
   };
 
   return (
@@ -140,7 +140,7 @@ const FilterableContent = () => {
           </div>   
         </div>
         <div className="filters-bottom-section">
-          <FilterRadio data={productTypes} setActiveFilter={setProducTypeSelection} isChecked={isRadioSelected} setIsChecked={setIsRadioSelected} />
+          <FilterRadio data={productTypes} setActiveFilter={setProducTypeSelection} isChecked={isProductTypeSelected} setIsChecked={setIsProductTypeSelected} />
           <ActionLink onClickHandler={onClearFilters} label="Clear Filters" />
         </div>
       </div>
