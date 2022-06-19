@@ -4,6 +4,7 @@ import ProductList from '../product-list/product-list.component';
 import FilterDropdown from '../filter-dropdown/filter-dropdown.component';
 import SearchInput from '../search-input/search-input.component';
 import FilterRadio from '../filter-radio/filter-radio.component';
+import ActionLink from '../action-link/action-link.component';
 
 import './filterable-content.styles.scss';
 
@@ -140,7 +141,7 @@ const FilterableContent = () => {
         </div>
         <div className="filters-bottom-section">
           <FilterRadio data={productTypes} setActiveFilter={setProducTypeSelection} isChecked={isRadioSelected} setIsChecked={setIsRadioSelected} />
-          <button id="button_clearFilters" className="action-link" onClick={onClearFilters}>Clear Filters</button>
+          <ActionLink onClickHandler={onClearFilters} label="Clear Filters" />
         </div>
       </div>
       <ProductList products={filteredProducts} setProducts={setProducts} />
